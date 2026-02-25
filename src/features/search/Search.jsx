@@ -1,0 +1,31 @@
+import React, { useRef } from 'react'
+
+const Search = () => {
+  const searchRef = useRef(null)    
+
+    // handler search.
+    const handleSearch = (e) => {
+      e.preventDefault()
+      if(searchRef.current.value !== '' && searchRef.current.value !== null){
+        console.log(searchRef.current.value)
+      } else return
+    }
+    
+  return (
+    <div className='flex flex-row gap-2 w-full justify-center'>
+        <input 
+          type="text"
+          name="Search"
+          ref={searchRef}
+          className="bg-gray-500 text-white p-2 w-10/12 rounded-bl-lg rounded-tl-lg outline-none border-none max-w-2xl" 
+          placeholder="Search..."/>
+        
+        <button 
+          className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-br-lg rounded-tr-lg"
+          type='submit'
+          onClick={handleSearch}>Search</button>
+    </div>
+  )
+}
+
+export default Search

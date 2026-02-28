@@ -8,7 +8,7 @@ const Root = () => {
       {/* navigation */}
       <NavigationBar />
       {/* outlet */}
-      <div className='mt-12 md:mt-28'>
+      <div className='mt-12 md:max-lg:mt-28 lg:mt-12'>
         <Outlet />
       </div>
       {/* footer */}

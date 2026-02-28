@@ -13,6 +13,7 @@ export default defineConfig({
       '@ui': path.resolve(__dirname, './src/ui'),
       '@pages': path.resolve(__dirname, './src/pages'),
       '@app': path.resolve(__dirname, './src/app/'),
+      '@assets': path.resolve(__dirname, './src/assets/')
     },
   },
   plugins: [

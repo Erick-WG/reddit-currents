@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Post = () => {
+  // instead of calling a specific post from the api, we can fetch it from store since it's already saved.
   return (
     <div>
         {/* post card */}

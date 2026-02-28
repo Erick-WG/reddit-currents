@@ -17,11 +17,11 @@ const Search = () => {
           type="text"
           name="Search"
           ref={searchRef}
-          className="bg-gray-500 text-white p-2 w-10/12 rounded-bl-lg rounded-tl-lg outline-none border-none max-w-2xl" 
+          className="bg-gray-600/50 focus:bg-gray-500/50 active:bg-gray-500/50 text-white p-2 w-10/12 rounded-bl-lg rounded-tl-lg outline-none border-2 border-gray-500/50 max-w-2xl" 
           placeholder="Search..."/>
         
         <button 
-          className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-br-lg rounded-tr-lg"
+          className="bg-blue-500 hover:bg-blue-600 hover:cursor-pointer text-white px-4 py-2 rounded-br-lg rounded-tr-lg"
           type='submit'
           onClick={handleSearch}>Search</button>
     </div>

@@ -25,7 +25,7 @@ const Home = () => {
         <div className='flex w-full items-start px-8 pt-6'>
           <h2 className='mb-4 font-semibold text-white text-lg'>Search results for {'searchTerm'}...</h2>
         </div>
-        <div className='flex flex-col gap-12'>
+        <div className='flex flex-col gap-12 pb-20'>
           <PostCard />
           <PostCard />
           <PostCard />

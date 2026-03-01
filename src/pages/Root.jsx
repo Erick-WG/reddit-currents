@@ -22,7 +22,7 @@ const Root = () => {
         <div className='flex flex-row gap-1.5 items-baseline'>
           <p className='text-lg'>Erick WG</p>
           <p>X</p>
-          <p className='text-orange-500 text-lg'>Reddit</p>
+          <p className='text-orange-600 text-lg'>Reddit</p>
         </div>
 
         <p>All rights reserved &copy; {year.getFullYear()}</p>

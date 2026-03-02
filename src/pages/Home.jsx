@@ -37,15 +37,16 @@ const Home = () => {
       </div>
       
       {/* main content layer */}
-      <div className={`${styles.scroll} flex flex-col gap-10 md:col-span-9 lg:col-span-7 w-full items-center h-screen overflow-y-scroll`}>
-        <div className='flex w-full items-start px-8 pt-6'>
-          <h2 className='mb-4 font-semibold text-white text-lg'>{postsPending ? 'loading' : ``}</h2>
+      <div className={`${styles.scroll} flex flex-col gap-4 md:col-span-9 lg:col-span-7 w-full items-center h-screen overflow-y-scroll`}>
+
+        {/* render when user searches up something */}
+        <div className='flex w-full items-start px-8'>
+          <h2 className='mb-4 font-semibold text-white text-lg'>{postsPending ? 'loading' : `Trending now`}</h2>
         </div>
         
           {/* store search results as objects in a list to be mapped over and outputted in postcards. */}
         <div className={`${postsPending ? 'hidden' : 'flex'} flex-col gap-12 pb-20`}>
           {posts ? posts.map(post => <PostCard post={post.data}/>) : ''}
-          {posts ? console.log(posts) : ''}
         </div>
       </div>
       

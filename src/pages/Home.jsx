@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 
 // data.
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchPosts, selectPosts, selectFetchPending} from '@features/search/SearchSlice'
+import { fetchPosts, selectSearchTerm, clearSearchTerm, selectPosts, selectFetchPending } from '@features/search/SearchSlice'
 
 // components
 import PostCard from '@features/post/PostCard'
@@ -19,11 +19,22 @@ const Home = () => {
   const dispatch = useDispatch()
   const posts = useSelector(selectPosts)
   const postsPending = useSelector(selectFetchPending)
+  const searchTerm = useSelector(selectSearchTerm)
   // const fetchError = useSelector(selectErrorFetching)
 
   useEffect(()=>{
-    dispatch(fetchPosts())
-  }, [dispatch])
+    if (searchTerm == null) {
+      dispatch(fetchPosts())
+    } else {
+      dispatch(fetchPosts(searchTerm))
+    }
+  }, [dispatch, searchTerm])
+
+
+  // handlers.
+  const handleClearSearch = () => {
+    dispatch(clearSearchTerm())
+  }
 
   return (
     <div className="relative md:grid grid-cols-12 gap-2 text-red-100 w-full">
@@ -37,16 +48,22 @@ const Home = () => {
       </div>
       
       {/* main content layer */}
+      
       <div className={`${styles.scroll} flex flex-col gap-4 md:col-span-9 lg:col-span-7 w-full items-center h-screen overflow-y-scroll`}>
 
         {/* render when user searches up something */}
-        <div className='flex w-full items-start px-8'>
-          <h2 className='mb-4 font-semibold text-white text-lg'>{postsPending ? 'loading' : `Trending now`}</h2>
+        <div className='flex w-full items-center px-8 justify-between mb-4'>
+          <h2 className='font-semibold text-white text-lg'>{searchTerm !== null && searchTerm !== '' ? `Showing results for ${searchTerm}...` : `Trending now`}</h2>
+          {searchTerm && (
+            <p 
+            className='hidden md:flex text-sm text-gray-100/90 hover:text-red-600 font-semibold hover:cursor-pointer'
+            onClick={handleClearSearch}>clear</p>
+          )}
         </div>
         
           {/* store search results as objects in a list to be mapped over and outputted in postcards. */}
-        <div className={`${postsPending ? 'hidden' : 'flex'} flex-col gap-12 pb-20`}>
-          {posts ? posts.map(post => <PostCard post={post.data}/>) : ''}
+        <div className={`${postsPending ? `w-full` : ``} flex flex-col gap-12 pb-20`}>
+          {posts.map(post => <PostCard post={post.data} isLoading={postsPending}/>)}
         </div>
       </div>
       

@@ -3,9 +3,9 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const fetchPosts = createAsyncThunk(
     "search/fetchPosts",
-    async (subreddit = "reactjs") => {
+    async (subreddit = "popular") => {
       try {
-        const response = await fetch(`https://www.reddit.com/r/${subreddit}/.json`);
+        const response = await fetch(`https://www.reddit.com/r/${subreddit}.json`);
   
         if (!response.ok) {
           throw new Error("Failed to fetch posts");
@@ -26,7 +26,7 @@ export const fetchPosts = createAsyncThunk(
 const SearchSlice = createSlice({
     name: 'search',
     initialState: {
-        searchTerm: '',
+        searchTerm: null,
         posts: [],
         postsPending: false,
         postsFetchError: false,
@@ -35,6 +35,9 @@ const SearchSlice = createSlice({
     reducers: {
         setSearchTerm: (state, action) => {
             state.searchTerm = action.payload;
+        },
+        clearSearchTerm: (state) => {
+            state.searchTerm = null
         }
     },
     selectors: {
@@ -63,7 +66,7 @@ const SearchSlice = createSlice({
 })
 
 
-export const { setSearchTerm } = SearchSlice.actions
+export const { setSearchTerm, clearSearchTerm } = SearchSlice.actions
 export const { selectSearchTerm, selectPosts, selectErrorFetching, selectFetchError, selectFetchPending } = SearchSlice.selectors
 
 

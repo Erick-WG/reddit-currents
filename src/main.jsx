@@ -7,10 +7,16 @@ import App from './App.jsx'
 import { store } from './app/store.js';
 import { Provider } from 'react-redux';
 
+// loaders
+import { SkeletonTheme } from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Provider store={store}>
-      <App />
+      <SkeletonTheme baseColor="#4a5565" highlightColor="#f3f4f1">
+        <App />
+      </SkeletonTheme>
     </Provider>
   </StrictMode>,
 )

@@ -1,13 +1,19 @@
 import React, { useRef } from 'react'
+import { useDispatch } from 'react-redux'
+import { setSearchTerm } from './SearchSlice'
 
 const Search = () => {
+  const dispatch = useDispatch()
+
+  // data
   const searchRef = useRef(null)    
 
     // handler search.
     const handleSearch = (e) => {
       e.preventDefault()
       if(searchRef.current.value !== '' && searchRef.current.value !== null){
-        console.log(searchRef.current.value)
+        dispatch(setSearchTerm(searchRef.current.value))
+        searchRef.current.value = ''
       } else return
     }
     

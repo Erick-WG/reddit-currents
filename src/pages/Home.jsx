@@ -36,6 +36,8 @@ const Home = () => {
     dispatch(clearSearchTerm())
   }
 
+  //todo: add a random button on the subreddits.
+
   return (
     <div className="relative md:grid grid-cols-12 gap-2 text-red-100 w-full">
       {/* side bar for sub reddits */}
@@ -43,8 +45,10 @@ const Home = () => {
         <h2 className='mb-4 font-semibold text-white text-xl'>Subreddits</h2>
         {/* dynamic links on interests. */}
         <SubReddit topic={'Reactjs'}/>
-        <SubReddit topic={'Angularjs'}/>
-        <SubReddit topic={'Sveltjs'}/>
+        <SubReddit topic={'Ask Reddit'}/>
+        <SubReddit topic={'pics'}/>
+        <SubReddit topic={'Cute'}/>
+        <SubReddit topic={'News'}/>
       </div>
       
       {/* main content layer */}
@@ -69,13 +73,15 @@ const Home = () => {
       
       {/* trending list links */}
       <div className='hidden lg:flex flex-wrap content-start sticky col-span-3 w-full border-l-2 border-gray-400 pl-6'>
-        <Trend popularTopic={'usa'}/>
-        <Trend popularTopic={'Mx4'}/>
-        <Trend popularTopic={'Mcdonalds'}/>
-        <Trend popularTopic={'Kenyan politicians'}/>
-        <Trend popularTopic={'Adult life'}/>
-        <Trend popularTopic={'Great times'}/>
-        <Trend popularTopic={'The art of war'}/>
+        <Trend popularTopic={'Cars'}/>
+        <Trend popularTopic={'BMW'}/>
+        <Trend popularTopic={'Travel'}/>
+        <Trend popularTopic={'Kenya'}/>
+        <Trend popularTopic={'Sips tea'}/>
+        <Trend popularTopic={'Books'}/>
+        <Trend popularTopic={'Interesting'}/>
+        <Trend popularTopic={'Business'}/>
+        <Trend popularTopic={'Trading'}/>
       </div>
     </div>
   )

@@ -73,9 +73,10 @@ const PostPage = () => {
                 <h3 className='text-md font-semibold'>Posted on <span className='text-orange-500'><Link to={`https://www.reddit.com/r/${subreddit}`} target='_blank'>r/{subreddit}</Link></span></h3>
                 <p className='font-semibold text-gray-400 text-md'>{subsCount(subreddit_subscribers)} Subs</p>
               </div>
-              <div className='font-semibold text-sm px-6 py-1 w-fit text-gray-900 bg-orange-500 flex items-center rounded-lg hover:cursor-pointer'>
-                <Link to={`https://www.reddit.com/${permalink}`} target='_blank'>Continue on Reddit</Link>
-              </div>
+                <Link 
+                  to={`https://www.reddit.com/${permalink}`} 
+                  className='font-semibold text-sm px-6 py-1 w-fit text-gray-900 bg-orange-500 flex items-center rounded-lg hover:cursor-pointer'
+                  target='_blank'>Continue on Reddit</Link>
             </div>
           )}
         </div>

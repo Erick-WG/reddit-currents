@@ -4,8 +4,8 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchPosts, selectSearchTerm, clearSearchTerm, selectPosts, selectFetchPending } from '@features/search/SearchSlice'
 
-// components
-import PostCard from '@features/post/PostCard'
+// component
+import PostPreview from '@features/post/PostPreview'
 import SubReddit from '@features/search/SubReddit'
 import Trend from '@features/post/Trend'
 
@@ -63,7 +63,7 @@ const Home = () => {
         
           {/* store search results as objects in a list to be mapped over and outputted in postcards. */}
         <div className={`${postsPending ? `w-full` : ``} flex flex-col gap-12 pb-20`}>
-          {posts.map(post => <PostCard post={post.data} isLoading={postsPending}/>)}
+          {posts.map(post => <PostPreview post={post.data} isLoading={postsPending}/>)}
         </div>
       </div>
       

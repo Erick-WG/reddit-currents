@@ -10,6 +10,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Root />}>
           <Route index element={<Home />} />
+          <Route path=':title' element={<Home />}/>
           <Route path=':subreddit/:title' element={<PostPage />}/>
           <Route path='*' element={<Home />}/>
         </Route>
